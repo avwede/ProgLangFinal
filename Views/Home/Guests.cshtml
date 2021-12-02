@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "List of Guests";
+}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Here is the list of people attending the party</h1>
+    <br />
+</div>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Guest Age</th>
+            <th>Arrival Time</th>
+            <th>Request Parking</th>
+        </tr>
+
+        @foreach (PartyInvites.Models.GuestResponse r in Repository.Responses)
+        {
+            <tr>
+                <td>@r.Name</td>
+                <td>@r.guestAge</td>
+                <td>@r.arrivalTime.Value.ToString("hh:mm tt")</td>
+                <td>@r.requestParking.ToString()</td>
+            </tr>
+
+        }
+    </tbody>
+</table>

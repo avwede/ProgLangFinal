@@ -1,0 +1,53 @@
+﻿@model GuestResponse
+@{
+    ViewData["Title"] = "Rsvp Form";
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/RsvpForm.css" />
+</head>
+
+<body>
+    <h5 class="bg-primary text-white text-center m-2 p-2">RSVP</h5>
+
+    <form asp-action="RsvpForm" method="post" class="m-2">
+        <div asp-validation-summary="All"></div>
+
+        <div class="">
+            <label asp-for="Name">Your name:</label>
+        </div>
+        <div>
+            <input asp-for="Name" style="width: 350px; background-color: #ffffcc;" />
+        </div>
+        <br />
+
+        <div class="form-group">
+            <label asp-for="guestAge">Your age:</label>
+        </div>
+        <div>
+            <input asp-for="guestAge" style="width: 350px; background-color: #ffffcc;" />
+        </div>
+        <br />
+
+        <div class="form-group">
+            <label asp-for="arrivalTime">Arrival time:</label>
+        </div>
+        <div>
+            <input asp-for="arrivalTime" style="width: 350px; background-color: #ffffcc;" />
+        </div>
+        <br />
+
+        <div class="form-group">
+            <label asp-for="requestParking">Request Parking?</label>
+        </div>
+        <div>
+            <select asp-for="requestParking" style="width: 350px; background-color: #ffffcc;">
+              <option value="">Choose an option</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+        </div>
+
+        <br />
+        <button type="submit">Submit RSVP</button>
+    </form>
+</body>
